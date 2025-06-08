@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday, My Love!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #ffdde1);
+      background-size: 400% 400%;
+      animation: backgroundMove 20s ease infinite;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.192);
+      padding: 40px 50px;
+      border-radius: 25px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+      max-width: 600px;
+      position: relative;
+      z-index: 10;
+      animation: fadeInCard 2s ease-out;
+    }
+
+    h1 {
+      font-size: 2.8em;
+      color: #ff6f91;
+      margin-bottom: 20px;
+      animation: glowText 2s ease-in-out infinite alternate;
+    }
+
+    p {
+      font-size: 1.3em;
+      color: #444;
+      animation: fadeInText 3s ease-in-out;
+    }
+
+    button {
+      margin-top: 25px;
+      padding: 12px 25px;
+      font-size: 1.1em;
+      background-color: #ff6f91;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      animation: pulse 1.5s infinite;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ff4e74;
+    }
+
+    /* Background gradient animation */
+    @keyframes backgroundMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes fadeInCard {
+      0% { opacity: 0; transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeInText {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes glowText {
+      from { text-shadow: 0 0 10px #ff9a9e, 0 0 20px #ff6f91; }
+      to { text-shadow: 0 0 20px #ff6f91, 0 0 30px #ff4e74; }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    /* Confetti */
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #ff6f91;
+      animation: confettiFall 5s linear infinite;
+      opacity: 1;
+      z-index: 1;
+    }
+
+    @keyframes confettiFall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1 id="greeting"> Happy Birthday, My Love! 🎂</h1>
+    <p id="message">
+      You light up my world every day. May your birthday be filled with all the love, joy, and laughter you deserve.
+    </p>
+    <button onclick="showMoreLove()">Click with love ❤️</button>
+  </div>
+
+  <!-- Confetti elements -->
+  <script>
+    // Create confetti elements
+    for (let i = 0; i < 100; i++) {
+      let confetti = document.createElement('div');
+      confetti.className = 'confetti';
+      confetti.style.left = Math.random() * 100 + 'vw';
+      confetti.style.top = '-' + Math.random() * 20 + 'vh';
+      confetti.style.backgroundColor = ['#ff6f91', '#ffc0cb', '#ffe5ec', '#ff4e74'][Math.floor(Math.random() * 4)];
+      confetti.style.animationDuration = (Math.random() * 3 + 3) + 's';
+      confetti.style.opacity = Math.random() * 1 + 1;
+      document.body.appendChild(confetti);
+    }
+
+    function showMoreLove() {
+      const message = document.getElementById("message");
+      message.innerHTML = "You're my heart, my soul, my everything. I love you more each day. 💖 Happy Birthday, my queen!";
+      document.body.style.background = "linear-gradient(to right, #ffecd2, #fcb69f)";
+    }
+  </script>
+</body>
+</html>
